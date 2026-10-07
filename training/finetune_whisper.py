@@ -155,19 +155,37 @@ def main():
         task_type="SEQ_2_SEQ_LM"
     )
 
-    # Use get_peft_model (compatible with all current PEFT versions).
-    # Fix Whisper forward() compatibility: PeftModelForSeq2SeqLM.forward() passes
-    # input_ids as a keyword argument, which conflicts with Whisper's decoder receiving
-    # it positionally, causing "multiple values for keyword argument 'input_ids'".
-    # We patch the model's forward to strip input_ids from kwargs before delegation.
+    # 1. FIX: Dummy method for Transformers 4.46+
+    def _dummy_kwargs(self, *args, **kwargs):
+        return kwargs.get("model_kwargs", kwargs)
+    setattr(WhisperForConditionalGeneration, "_prepare_encoder_decoder_kwargs_for_generation", _dummy_kwargs)
+    import peft
+    try:
+        setattr(peft.tuners.lora.model.LoraModel, "_prepare_encoder_decoder_kwargs_for_generation", _dummy_kwargs)
+    except AttributeError:
+        pass
+
+    # 2. FIX: Protect forward AND generate from unexpected kwargs pushed by PEFT/Trainer
+    if getattr(WhisperForConditionalGeneration, "_is_patched", False) is False:
+        # Protect forward()
+        _orig_whisper_forward = WhisperForConditionalGeneration.forward
+        def _whisper_safe_forward(self, *args, **kwargs):
+            kwargs.pop("input_ids", None)
+            kwargs.pop("inputs_embeds", None)
+            return _orig_whisper_forward(self, *args, **kwargs)
+        WhisperForConditionalGeneration.forward = _whisper_safe_forward
+
+        # Protect generate()
+        _orig_whisper_generate = WhisperForConditionalGeneration.generate
+        def _whisper_safe_generate(self, *args, **kwargs):
+            kwargs.pop("labels", None)
+            return _orig_whisper_generate(self, *args, **kwargs)
+        WhisperForConditionalGeneration.generate = _whisper_safe_generate
+
+        WhisperForConditionalGeneration._is_patched = True
+
+    # 3. Use get_peft_model (compatible with all current PEFT versions).
     model = get_peft_model(model, peft_config)
-
-    _original_forward = model.forward
-    def _whisper_safe_forward(*args, **kwargs):
-        kwargs.pop("input_ids", None)
-        return _original_forward(*args, **kwargs)
-    model.forward = _whisper_safe_forward
-
     model.print_trainable_parameters()
 
 

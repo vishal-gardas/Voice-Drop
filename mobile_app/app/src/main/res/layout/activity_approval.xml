@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OTP Sharing Request"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/companyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Company Name"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/callerNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Caller: +1234567890"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description will appear here"
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:id="@+id/approveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Approve OTP Sharing"
+        android:backgroundTint="@color/green"
+        android:textColor="@color/white"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/denyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Deny"
+        android:backgroundTint="@color/red"
+        android:textColor="@color/white"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/closeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Close"
+        android:backgroundTint="@color/gray" />
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:gravity="end">
+
+    <!-- Empty space to push content right -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="0.2" />
+
+    <!-- Right side bubble for AI -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:orientation="vertical"
+        android:background="@drawable/chat_bubble_right"
+        android:padding="12dp"
+        android:layout_marginStart="48dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:id="@+id/speakerTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="AI Assistant"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="@color/ai_color" />
+
+            <TextView
+                android:id="@+id/timestampTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00:00"
+                android:textSize="10sp"
+                android:textColor="@color/secondary_text_color" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/messageTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Message text goes here"
+            android:textSize="14sp"
+            android:textColor="@color/primary_text_color"
+            android:lineSpacingExtra="2dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

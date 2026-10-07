@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Original Colors from your project -->
+    <color name="background">#FF121212</color> <!-- Assuming a dark background -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="green">#FF4CAF50</color> <!-- A more standard green -->
+
+    <color name="ripple">#00FFFFFF</color>
+
+    <color name="red">#F44336</color>
+    <color name="gray">#9E9E9E</color>
+
+    <!-- New Colors for the Gradient Background -->
+    <color name="background_black">#000000</color>
+    <color name="background_dark">#1C1C1C</color>
+    <color name="golden_glow">#40FFD700</color> <!-- Semi-transparent gold (25% opacity) -->
+    <color name="glass_overlay_start">#1AFFFFFF</color> <!-- Semi-transparent white (10% opacity) -->
+    <color name="glass_overlay_end">#00FFFFFF</color> <!-- Fully transparent white -->
+
+
+    <!-- Gold Theme Colors -->
+    <color name="gold_primary">#FFD700</color> <!-- Bright Gold -->
+    <color name="gold_dark">#B8860B</color> <!-- Dark Gold -->
+    <color name="gold_light">#FFF8DC</color> <!-- Light Gold -->
+    <color name="gold_accent">#FFC125</color> <!-- Golden Yellow -->
+
+    <!-- Black Theme Colors -->
+    <color name="black_primary">#121212</color> <!-- Rich Black -->
+    <color name="black_dark">#000000</color> <!-- Pure Black -->
+    <color name="black_light">#1E1E1E</color> <!-- Light Black -->
+    <color name="black_surface">#1A1A1A</color> <!-- Surface Black -->
+
+    <!-- Glass Morphism Colors -->
+    <color name="glass_dark">#BF1A1A1A</color> <!-- Semi-transparent Dark -->
+    <color name="glass_light">#40FFFFFF</color> <!-- Semi-transparent Light -->
+    <color name="glass_border">#15FFD700</color> <!-- Subtle Gold Border -->
+
+    <!-- Background Colors -->
+    <color name="card_background">#1F1F1F</color> <!-- Card Background -->
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color> <!-- White Text -->
+    <color name="text_secondary">#B3B3B3</color> <!-- Light Gray Text -->
+    <color name="text_gold">#FFD700</color> <!-- Gold Text -->
+
+    <!-- Bottom Navigation Colors -->
+    <color name="bottom_nav_background">#1A1A1A</color>
+    <color name="bottom_nav_item_selected">#FFD700</color> <!-- Gold when selected -->
+    <color name="bottom_nav_item_unselected">#808080</color> <!-- Gray when unselected -->
+
+    <!-- Additional Gold Shades for Gradients -->
+    <color name="gold_shade_1">#FFECB3</color> <!-- Very Light Gold -->
+    <color name="gold_shade_2">#FFD54F</color> <!-- Medium Gold -->
+    <color name="gold_shade_3">#FFC107</color> <!-- Amber Gold -->
+    <color name="gold_shade_4">#FF8F00</color> <!-- Deep Gold -->
+
+    <!-- Additional Black Shades -->
+    <color name="black_shade_1">#2D2D2D</color> <!-- Light Black -->
+    <color name="black_shade_2">#424242</color> <!-- Medium Black -->
+    <color name="black_shade_3">#616161</color> <!-- Dark Gray -->
+
+
+
+
+
+
+    <!-- New Black and Gold Theme -->
+    <color name="gold_secondary">#B8860B</color> <!-- A darker, more subtle gold -->
+    <color name="text_subtle">#A9A9A9</color> <!-- A soft grey for non-highlighted text -->
+
+    <color name="premium_gold">#D4AF37</color>
+    <color name="dark_charcoal">#1C1C1C</color>
+    <color name="black_gradient_start">#121212</color>
+
+
+    <color name="medium_gray">#BEFFFFFF</color>
+
+    <color name="primary_text_color">#212121</color>
+    <color name="secondary_text_color">#757575</color>
+    <color name="divider_color">#E0E0E0</color>
+
+    <color name="caller_bubble_color">#F0F0F0</color>
+    <color name="ai_bubble_color">#E3F2FD</color>
+    <color name="bubble_border_color">#E0E0E0</color>
+    <color name="caller_color">#2196F3</color>
+    <color name="ai_color">#4CAF50</color>
+    <color name="default_speaker_color">#757575</color>
+
+    <color name="gold_gradient_start">#FFD700</color>
+    <color name="glass_background">#1A1A1A1A</color>
+    <color name="button_text">#000000</color>
+
+</resources>

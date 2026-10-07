@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/callLogsFragment">
+
+    <fragment
+        android:id="@+id/callLogsFragment"
+        android:name="com.app.echomi.Fragments.CallLogsFragment"
+        android:label="fragment_call_logs"
+        tools:layout="@layout/fragment_call_logs" />
+    <fragment
+        android:id="@+id/assistantFragment"
+        android:name="com.app.echomi.Fragments.AssistantFragment"
+        android:label="fragment_assistant"
+        tools:layout="@layout/fragment_assistant" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.app.echomi.Fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

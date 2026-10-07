@@ -31,7 +31,7 @@ from transformers import (
     Seq2SeqTrainingArguments,
     Seq2SeqTrainer,
 )
-from peft import LoraConfig, inject_adapter_in_model, PeftModel
+from peft import LoraConfig, get_peft_model
 
 
 # ==============================================================================
@@ -154,20 +154,22 @@ def main():
         bias="none",
         task_type="SEQ_2_SEQ_LM"
     )
-    
-    # Use inject_adapter_in_model to avoid Whisper input_ids keyword argument collision
-    model = inject_adapter_in_model(peft_config, model)
-    
-    # Freeze all base weights; only LoRA matrices (lora_A / lora_B) stay trainable
-    for name, param in model.named_parameters():
-        if "lora_" in name:
-            param.requires_grad = True
-        else:
-            param.requires_grad = False
-            
-    trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    total = sum(p.numel() for p in model.parameters())
-    print(f"✅ Trainable parameters: {trainable:,} / {total:,} ({100*trainable/total:.4f}%)")
+
+    # Use get_peft_model (compatible with all current PEFT versions).
+    # Fix Whisper forward() compatibility: PeftModelForSeq2SeqLM.forward() passes
+    # input_ids as a keyword argument, which conflicts with Whisper's decoder receiving
+    # it positionally, causing "multiple values for keyword argument 'input_ids'".
+    # We patch the model's forward to strip input_ids from kwargs before delegation.
+    model = get_peft_model(model, peft_config)
+
+    _original_forward = model.forward
+    def _whisper_safe_forward(*args, **kwargs):
+        kwargs.pop("input_ids", None)
+        return _original_forward(*args, **kwargs)
+    model.forward = _whisper_safe_forward
+
+    model.print_trainable_parameters()
+
 
     # 5. Define Metric Computation (Word Error Rate - WER)
     metric = evaluate.load("wer")

@@ -1,0 +1,44 @@
+# ========================
+#  VoiceDrop Root .gitignore
+# ========================
+
+# ----- Python / Flask -----
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# ----- Node.js Backend -----
+backend/node_modules/
+backend/.env
+backend/config/firebase-service-account.json
+backend/package-lock.json
+
+# ----- Android Mobile App -----
+mobile_app/app/google-services.json
+mobile_app/.gradle/
+mobile_app/build/
+mobile_app/app/build/
+mobile_app/local.properties
+mobile_app/.idea/workspace.xml
+mobile_app/.idea/navEditor.xml
+mobile_app/.idea/assetWizardSettings.xml
+mobile_app/.idea/caches/
+mobile_app/.idea/libraries/
+mobile_app/.idea/modules.xml
+mobile_app/package-lock.json
+*.iml
+
+# ----- IDE / OS -----
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ----- Agents / Tools -----
+.agents/
+.gemini/
+.antigravityignore

@@ -1,0 +1,24 @@
+# Core Flask dependencies
+Flask==3.0.0
+flask-cors==4.0.0
+python-dotenv==1.0.0
+
+# AI/ML dependencies
+google-genai>=0.1.0
+
+# Maps and geolocation (OpenStreetMap & geopy)
+requests>=2.31.0
+geopy>=2.4.0
+
+# Data validation and serialization
+pydantic>=2.10.0
+
+# Speech & Language Processing (SLP) dependencies (Local STT & TTS)
+numpy>=1.24.0
+scipy>=1.11.0
+soundfile>=0.12.1
+faster-whisper>=1.0.0
+edge-tts>=6.1.0
+pyttsx3>=2.90
+jiwer>=3.0.0
+evaluate>=0.4.0
